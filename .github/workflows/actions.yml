@@ -10,8 +10,8 @@ jobs:
       - run: pip3 install pytest
       - run: pytest test_lib.py
       - name: Upload logs.txt
-        uses: actions/upload-artifact@v3
         if: ${{ failure() }}
+        uses: actions/upload-artifact@v3        
         with:
           name: unit-tests-logs
           path: logs.txt
