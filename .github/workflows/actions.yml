@@ -1,0 +1,17 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  UnitTests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -la
+      - uses: actions/checkout@v3 #permet de récupérer les fichiers dans git
+      - run: ls -la
+      - run: pip3 install pytest
+      - run: pytest test_lib.py
+      - name: Upload logs.txt
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-tests-logs
+          path: logs.txt
+    
