@@ -11,6 +11,7 @@ jobs:
       - run: pytest test_lib.py
       - name: Upload logs.txt
         uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
         with:
           name: unit-tests-logs
           path: logs.txt
