@@ -1,10 +1,15 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Unit-Tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: ls -al
       - run: python3 job.py
       - run: python3 test_moy.py
+  Docker:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker -v
+
