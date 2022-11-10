@@ -11,5 +11,10 @@ jobs:
   Docker:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: docker -v
+      - run : docker built -t flask_app .
+      - run : docker tag flask_app username/projet:latest
+      - run : docker login -u username -p secrets.DOCKER_REGISTRY_PASSWORD
+      - run : docker push username/projet:latest
 
